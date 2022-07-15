@@ -5,6 +5,7 @@ package com.bobhome.dsmeta.services;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,10 @@ public class SaleService {
 	
 	@Autowired
 	private SaleRepository repository;
+
+	public List<Sale> findAllPaged() {
+		return repository.findAll();
+	}
 
 	@Transactional(readOnly = true)	
 	public Page<SaleDTO> findAllPaged(String minDate, String maxDate, Pageable pageable) {
