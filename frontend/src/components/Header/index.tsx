@@ -12,7 +12,7 @@ function Header() {
                 <a href="https://www.instagram.com/bob.okamura/"> @bob.okamura</a>
             </p>
         </div>    
-    </header>
+    </header>  
     )
     
   }
