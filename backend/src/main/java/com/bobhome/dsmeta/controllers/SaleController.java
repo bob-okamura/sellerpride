@@ -1,5 +1,7 @@
 package com.bobhome.dsmeta.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,12 +26,25 @@ public class SaleController {
 	@Autowired
 	private SmsService smsService;
 	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<SaleDTO> findById(@PathVariable Long id) throws Exception{
+		SaleDTO dto = service.findById(id);
+		return ResponseEntity.ok(dto);
+	}
+	
+	@GetMapping(value = "/names")
+	public ResponseEntity<List<SaleDTO>> findByName(@PathVariable
+		@RequestParam(value = "name", defaultValue = "") String name){
+		List<SaleDTO> list = service.findByName(name);
+		return ResponseEntity.ok().body(list);
+	}
+	
 	@GetMapping
-	public ResponseEntity<Page<SaleDTO>> findAll(
+	public ResponseEntity<Page<SaleDTO>> findByDate(
 			@RequestParam(value = "minDate", defaultValue = "") String minDate, 
 			@RequestParam(value = "maxDate", defaultValue = "")String maxDate, 
 			Pageable pageable){
-		Page<SaleDTO> page = service.findAllPaged(minDate, maxDate, pageable);
+		Page<SaleDTO> page = service.findByDate(minDate, maxDate, pageable);
 		return ResponseEntity.ok(page);
 	}
 	
