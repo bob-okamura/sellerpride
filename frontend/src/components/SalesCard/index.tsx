@@ -6,7 +6,7 @@ import { Sale } from "../../models/sale";
 import { BASE_URL } from "../../utils/request";
 import NotificationButton from "../NotificationButton";
 import "./styles.css";
-import btnSearch from "../../assets/img/search.svg";
+
 
 function SalesCard() {
   const min = new Date(new Date().setDate(new Date().getDate() - 365));

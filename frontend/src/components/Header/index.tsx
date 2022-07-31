@@ -8,7 +8,7 @@ function Header() {
       <div className="dsmeta-logo-container">
         <img src={logo} alt="SellerPride" />
         <h1>Seller Pride</h1>
-        <div className="dsmeta-git-image">
+        <div className="dsmeta-git-image">  
           <p>
             Desenvolvido por
             <a href="https://github.com/bob-okamura/dsmeta">
